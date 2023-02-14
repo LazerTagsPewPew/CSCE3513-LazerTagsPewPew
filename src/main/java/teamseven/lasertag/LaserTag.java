@@ -6,7 +6,8 @@ package teamseven.lasertag;
 
 /**
  *
- * @author dmr019
+ * @author mainly dmr019
+ * @CoAuthor drstull
  */
 public class LaserTag {
     /**
