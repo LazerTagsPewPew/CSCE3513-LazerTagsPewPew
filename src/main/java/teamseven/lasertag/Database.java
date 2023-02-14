@@ -1,4 +1,4 @@
-package src.main.java.teamseven.lasertag;
+package teamseven.lasertag;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
