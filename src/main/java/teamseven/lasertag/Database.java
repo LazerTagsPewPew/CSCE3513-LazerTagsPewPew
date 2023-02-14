@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private final String url = "jdbc:postgresql://supabase:5432/postgres";
+    private final String url = "jdbc:postgresql://db.yfxjoxxaxhaqikyecrro.supabase.co:5432/postgres";
     private final String userName = "postgres";
     private final String passWord = "LazerTagPewPew";
 
