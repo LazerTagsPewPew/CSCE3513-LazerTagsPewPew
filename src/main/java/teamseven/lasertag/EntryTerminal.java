@@ -1943,14 +1943,14 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField2ActionPerformed
     String idFromEvt = evt.getActionCommand();
     System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
+    //so the string stored in the text bock is submitted as "evt"
+    //so I'll then run a querry on the database, if the corresponding 
     String dbCodeName = "Testing Code Name";
     //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
+    // if the codeName is found we'll write that data to the next textField
         if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
+    //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
     }//GEN-LAST:event_redTeamUserIdTextField2ActionPerformed
