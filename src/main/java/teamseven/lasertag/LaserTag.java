@@ -21,8 +21,7 @@ public class LaserTag {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
 
-         Database database = new Database();
-         database.connect();
+         Database db = new Database();
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
