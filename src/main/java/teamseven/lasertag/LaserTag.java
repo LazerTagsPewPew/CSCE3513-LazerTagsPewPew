@@ -9,6 +9,7 @@ package teamseven.lasertag;
  * @author dmr019
  */
 public class LaserTag {
+    public static Database db = new Database();
     /**
      * @param args the command line arguments
      */
@@ -25,6 +26,12 @@ public class LaserTag {
                     break;
                 }
             }
+            db.openDatabase();           
+            db.readRecords();
+            db.createRecord(9, "Paul", "Smith", "brug");
+            db.deleteRecord(9, "Paul", "Smith", "brug");
+            db.inTable(100);
+            db.closeDatabase();
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(SplashScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
