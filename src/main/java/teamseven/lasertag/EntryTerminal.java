@@ -13,6 +13,7 @@ public class EntryTerminal extends javax.swing.JFrame {
     /**
      * Creates new form EntryTerminal
      */
+
 //we're gonna have to add a member variable that is an instance of our database
     public EntryTerminal() {
         initComponents();
