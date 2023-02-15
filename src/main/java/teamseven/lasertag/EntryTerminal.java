@@ -6,7 +6,7 @@ package teamseven.lasertag;
 
 /**
  *
- * @author Daijon Roberts & Drew Stull
+ * @author Daijon Roberts & Drew Stull & Landon Grazer
  */
 public class EntryTerminal extends javax.swing.JFrame {
 
@@ -1562,7 +1562,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField7ActionPerformed
+    }
 
     private void redTeamCodeNameTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField5ActionPerformed
        //this will be the code for what happens when we hit enter on a CodeNameTextField
@@ -1574,7 +1574,7 @@ String codeName = evt.getActionCommand();
 System.out.println("These are the values that will be passed to the DB to add a new record.");
 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField5ActionPerformed
+    }
 
     private void redTeamUserIdTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField5ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1589,7 +1589,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField5ActionPerformed
+    }
 
     private void redTeamCodeNameTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField3ActionPerformed
        //this will be the code for what happens when we hit enter on a CodeNameTextField
@@ -1601,7 +1601,7 @@ String codeName = evt.getActionCommand();
 System.out.println("These are the values that will be passed to the DB to add a new record.");
 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField3ActionPerformed
+    }
 
     private void redTeamUserIdTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField3ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1616,7 +1616,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField3ActionPerformed
+    }
 
     private void redTeamCodeNameTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField2ActionPerformed
        //this will be the code for what happens when we hit enter on a CodeNameTextField
@@ -1628,7 +1628,7 @@ String codeName = evt.getActionCommand();
 System.out.println("These are the values that will be passed to the DB to add a new record.");
 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField2ActionPerformed
+    }
 
     private void redTeamUserIdTextField0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField0ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1643,30 +1643,30 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField0ActionPerformed
+    }
 
     private void redTeamCheckBox0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCheckBox0ActionPerformed
         //
-    }//GEN-LAST:event_redTeamCheckBox0ActionPerformed
+    }
 
     private void redTeamCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCheckBox1ActionPerformed
         // 
-    }//GEN-LAST:event_redTeamCheckBox1ActionPerformed
+    }
 
     private void greenTeamCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCheckBox1ActionPerformed
         //
-    }//GEN-LAST:event_greenTeamCheckBox1ActionPerformed
+    }
 
     private void redTeamCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCheckBox12ActionPerformed
         // 
-    }//GEN-LAST:event_redTeamCheckBox12ActionPerformed
+    }
 
     private void greenTeamCheckBox0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCheckBox0ActionPerformed
-    }//GEN-LAST:event_greenTeamCheckBox0ActionPerformed
+    }
 
     private void greenTeamCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCheckBox14ActionPerformed
         //
-    }//GEN-LAST:event_greenTeamCheckBox14ActionPerformed
+    }
 
     private void redTeamUserIdTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField0KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
@@ -1937,7 +1937,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
          {
              System.exit(ABORT);
          }
-    }//GEN-LAST:event_redTeamCodeNameTextField15KeyReleased
+    }
 
     private void redTeamUserIdTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField2ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1952,7 +1952,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField2ActionPerformed
+    }
 
     private void redTeamUserIdTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField4ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1967,7 +1967,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField4ActionPerformed
+    }
 
     private void redTeamUserIdTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField6ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1982,7 +1982,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField6ActionPerformed
+    }
 
     private void redTeamUserIdTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField8ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -1997,7 +1997,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField8ActionPerformed
+    }
 
     private void redTeamUserIdTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField9ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -2012,7 +2012,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField9ActionPerformed
+    }
 
     private void redTeamUserIdTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField10ActionPerformed
     String idFromEvt = evt.getActionCommand();
@@ -2027,7 +2027,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
 //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
-    }//GEN-LAST:event_redTeamUserIdTextField10ActionPerformed
+    }
 
     private void redTeamUserIdTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField11ActionPerformed
     String idFromEvt = evt.getActionCommand();
