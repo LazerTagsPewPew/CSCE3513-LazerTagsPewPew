@@ -1,7 +1,3 @@
 # CSCE3513-LazerTagsPewPew
-<<<<<<< Updated upstream
-# hello
-=======
+# Daijon, Nathan, Jordan, Landon, Clay, Drew
 
-hello
->>>>>>> Stashed changes
