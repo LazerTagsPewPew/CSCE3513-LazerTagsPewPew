@@ -1646,27 +1646,26 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     }//GEN-LAST:event_redTeamUserIdTextField0ActionPerformed
 
     private void redTeamCheckBox0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCheckBox0ActionPerformed
-        // TODO add your handling code here:
+        //
     }//GEN-LAST:event_redTeamCheckBox0ActionPerformed
 
     private void redTeamCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCheckBox1ActionPerformed
-        // TODO add your handling code here:
+        // 
     }//GEN-LAST:event_redTeamCheckBox1ActionPerformed
 
     private void greenTeamCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCheckBox1ActionPerformed
-        // TODO add your handling code here:
+        //
     }//GEN-LAST:event_greenTeamCheckBox1ActionPerformed
 
     private void redTeamCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCheckBox12ActionPerformed
-        // TODO add your handling code here:
+        // 
     }//GEN-LAST:event_redTeamCheckBox12ActionPerformed
 
     private void greenTeamCheckBox0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCheckBox0ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_greenTeamCheckBox0ActionPerformed
 
     private void greenTeamCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCheckBox14ActionPerformed
-        // TODO add your handling code here:
+        //
     }//GEN-LAST:event_greenTeamCheckBox14ActionPerformed
 
     private void redTeamUserIdTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField0KeyReleased
