@@ -4,6 +4,8 @@
  */
 package teamseven.lasertag;
 
+import java.io.IOException;
+
 /**
  *
  * @author Daijon Roberts & Drew Stull & Landon Grazer
@@ -1555,99 +1557,258 @@ public class EntryTerminal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //-----------------------------------------------------------------------------------------------------------------------------------
-    private void redTeamUserIdTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField7ActionPerformed
+    private void redTeamUserIdTextField7ActionPerformed(java.awt.event.ActionEvent evt)
+    {
         String idFromEvt = evt.getActionCommand();
-        System.out.println("Sending the DB the id number: " + idFromEvt);
-        //so the string stored in the text bock is submitted as "evt"
-        //so I'll then run a querry on the database, if the corresponding 
-        String dbCodeName = "Testing Code Name";
-        //String dbCodeName = DB.querry(idFromEvt);
-        // if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        int idNumParsed = -1;
+        try
         {
-        //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamCodeNameTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField5ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField5.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }
+    private void redTeamCodeNameTextField5ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField5.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
-    private void redTeamUserIdTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField5ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField5ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamCodeNameTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField3ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField3.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }
+    private void redTeamCodeNameTextField3ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField3.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
-    private void redTeamUserIdTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField3ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField3ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamCodeNameTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField2ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField2.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }
+    private void redTeamCodeNameTextField2ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField2.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
-    private void redTeamUserIdTextField0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField0ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField0ActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
@@ -1682,17 +1843,42 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
          }
     }//GEN-LAST:event_redTeamUserIdTextField0KeyReleased
 
-    private void redTeamCodeNameTextField0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField0ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField0.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField0ActionPerformed
+    private void redTeamCodeNameTextField0ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField0.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
     private void redTeamCodeNameTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField0KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
@@ -1719,18 +1905,39 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
          }
     }//GEN-LAST:event_redTeamUserIdTextField1KeyReleased
 
-    private void redTeamUserIdTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField1ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField1ActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }//GEN-LAST:event_redTeamUserIdTextField1ActionPerformed
 
@@ -1742,17 +1949,42 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField1KeyReleased
 
-    private void redTeamCodeNameTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField1ActionPerformed
+    private void redTeamCodeNameTextField1ActionPerformed(java.awt.event.ActionEvent evt) 
+    {
        //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField1.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField1ActionPerformed
+        //we essentially want to let the user add a name to the DB if it doens't already exist
+        //so if the user is clicking enter on this text field they want to add a new user to the DB
+        //So we need to pull the strings from the textFields and send them to the DB to create a new record
+        String idNum = redTeamUserIdTextField1.getText();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idNum);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in the used ID box to an integer.");
+        }
+        else
+        {
+            String codeName = db.inTable(idNumParsed);
+            if(codeName == null)
+            {
+                codeName = evt.getActionCommand();
+                System.out.println("These are the values that will be passed to the DB to add a new record.");
+                System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                db.createRecord(idNumParsed, "blank", "blank", codeName);
+            }
+            else
+            {
+                System.out.println("That userId already exist please enter a different integer.");
+            }
+        }
+    }
 
     private void redTeamUserIdTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField2KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
@@ -1925,6 +2157,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField9KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField9KeyReleased
@@ -1932,6 +2165,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField10KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField10KeyReleased
@@ -1939,6 +2173,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField11KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField11KeyReleased
@@ -1946,6 +2181,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField12KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField12KeyReleased
@@ -1953,6 +2189,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField13KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField13KeyReleased
@@ -1960,6 +2197,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField14KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField14KeyReleased
@@ -1967,310 +2205,818 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField15KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }
 
-    private void redTeamUserIdTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField2ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-    //so the string stored in the text bock is submitted as "evt"
-    //so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-    // if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField2ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-    //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamUserIdTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField4ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField4ActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamUserIdTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField6ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField6ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamUserIdTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField8ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField8ActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamUserIdTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField9ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField9ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamUserIdTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField10ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField10ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
     }
 
-    private void redTeamUserIdTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField11ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void redTeamUserIdTextField11ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
         }
-    }//GEN-LAST:event_redTeamUserIdTextField11ActionPerformed
-
-    private void redTeamUserIdTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField12ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        catch(NumberFormatException e)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Value in the user Id box is not an integer");
         }
-    }//GEN-LAST:event_redTeamUserIdTextField12ActionPerformed
 
-    private void redTeamUserIdTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField13ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        if(idNumParsed == -1)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Please change the value in Id field to an integer.");
         }
-    }//GEN-LAST:event_redTeamUserIdTextField13ActionPerformed
-
-    private void redTeamUserIdTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField14ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        else
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
-        }
-    }//GEN-LAST:event_redTeamUserIdTextField14ActionPerformed
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void redTeamUserIdTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField15ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void redTeamUserIdTextField12ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        redTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
         }
-    }//GEN-LAST:event_redTeamUserIdTextField15ActionPerformed
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void redTeamCodeNameTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField4ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField4.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField4ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void redTeamCodeNameTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField6ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField6.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField6ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void redTeamCodeNameTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField7ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField7.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField7ActionPerformed
+    private void redTeamUserIdTextField13ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void redTeamCodeNameTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField8ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField8.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField8ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void redTeamCodeNameTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField9ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField9.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField9ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void redTeamCodeNameTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField10ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField10.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField10ActionPerformed
+    private void redTeamUserIdTextField14ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void redTeamCodeNameTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField11ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField11.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField11ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void redTeamCodeNameTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField12ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField12.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField12ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void redTeamCodeNameTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField13ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField13.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField13ActionPerformed
+    private void redTeamUserIdTextField15ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void redTeamCodeNameTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField14ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField14.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField14ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void redTeamCodeNameTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField15ActionPerformed
-       //this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = redTeamUserIdTextField15.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_redTeamCodeNameTextField15ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            redTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void redTeamCodeNameTextField4ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField4.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField6ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField6.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField7ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField7.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField8ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField8.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField9ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField9.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField10ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField10.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField11ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField11.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField12ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField12.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField13ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField13.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField14ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField14.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void redTeamCodeNameTextField15ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = redTeamUserIdTextField15.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
     private void greenTeamUserIdTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField0KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField0KeyReleased
@@ -2278,6 +3024,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField1KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField1KeyReleased
@@ -2285,6 +3032,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField2KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField2KeyReleased
@@ -2292,6 +3040,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField3KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField3KeyReleased
@@ -2299,6 +3048,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField4KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField4KeyReleased
@@ -2306,6 +3056,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField5KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField5KeyReleased
@@ -2313,6 +3064,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField6KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField6KeyReleased
@@ -2320,6 +3072,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField7KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField7KeyReleased
@@ -2327,6 +3080,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField8KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField8KeyReleased
@@ -2334,6 +3088,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField9KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField9KeyReleased
@@ -2341,6 +3096,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField10KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField10KeyReleased
@@ -2348,6 +3104,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField11KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField11KeyReleased
@@ -2355,6 +3112,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField12KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField12KeyReleased
@@ -2362,6 +3120,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField13KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField13KeyReleased
@@ -2369,6 +3128,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField14KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField14KeyReleased
@@ -2376,6 +3136,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamUserIdTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField15KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamUserIdTextField15KeyReleased
@@ -2383,6 +3144,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField0KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField0KeyReleased
@@ -2390,6 +3152,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField1KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField1KeyReleased
@@ -2397,6 +3160,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField2KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField2KeyReleased
@@ -2404,6 +3168,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField3KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField3KeyReleased
@@ -2411,6 +3176,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField4KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField4KeyReleased
@@ -2418,6 +3184,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField5KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField5KeyReleased
@@ -2425,6 +3192,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField6KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField6KeyReleased
@@ -2432,6 +3200,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField7KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField7KeyReleased
@@ -2439,6 +3208,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField8KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField8KeyReleased
@@ -2446,6 +3216,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField9KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField9KeyReleased
@@ -2453,6 +3224,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField10KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField10KeyReleased
@@ -2460,6 +3232,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField11KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField11KeyReleased
@@ -2467,6 +3240,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField12KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField12KeyReleased
@@ -2474,6 +3248,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField13KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField13KeyReleased
@@ -2481,6 +3256,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField14KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField14KeyReleased
@@ -2488,442 +3264,1178 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void greenTeamCodeNameTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField15KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField15KeyReleased
 
-    private void greenTeamUserIdTextField0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField0ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+    private void greenTeamUserIdTextField0ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField0ActionPerformed
-
-    private void greenTeamUserIdTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField1ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        catch(NumberFormatException e)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Value in the user Id box is not an integer");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField1ActionPerformed
 
-    private void greenTeamUserIdTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField2ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        if(idNumParsed == -1)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Please change the value in Id field to an integer.");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField2ActionPerformed
-
-    private void greenTeamUserIdTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField3ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        else
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
-        }
-    }//GEN-LAST:event_greenTeamUserIdTextField3ActionPerformed
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamUserIdTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField4ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField1ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField4ActionPerformed
-
-    private void greenTeamUserIdTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField5ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        catch(NumberFormatException e)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Value in the user Id box is not an integer");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField5ActionPerformed
 
-    private void greenTeamUserIdTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField6ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        if(idNumParsed == -1)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Please change the value in Id field to an integer.");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField6ActionPerformed
-
-    private void greenTeamUserIdTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField7ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        else
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
-        }
-    }//GEN-LAST:event_greenTeamUserIdTextField7ActionPerformed
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamUserIdTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField8ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField2ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField8ActionPerformed
-
-    private void greenTeamUserIdTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField9ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        catch(NumberFormatException e)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Value in the user Id box is not an integer");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField9ActionPerformed
 
-    private void greenTeamUserIdTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField10ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        if(idNumParsed == -1)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Please change the value in Id field to an integer.");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField10ActionPerformed
-
-    private void greenTeamUserIdTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField11ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        else
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
-        }
-    }//GEN-LAST:event_greenTeamUserIdTextField11ActionPerformed
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamUserIdTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField12ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField3ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            idNumParsed = Integer.parseInt(idFromEvt);
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField12ActionPerformed
-
-    private void greenTeamUserIdTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField13ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        catch(NumberFormatException e)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Value in the user Id box is not an integer");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField13ActionPerformed
 
-    private void greenTeamUserIdTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField14ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        if(idNumParsed == -1)
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Please change the value in Id field to an integer.");
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField14ActionPerformed
-
-    private void greenTeamUserIdTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamUserIdTextField15ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
-        if(dbCodeName != null)//if DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+        else
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
-        greenTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
         }
-    }//GEN-LAST:event_greenTeamUserIdTextField15ActionPerformed
+    }
 
-    private void greenTeamCodeNameTextField0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField0ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField0.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField0ActionPerformed
+    private void greenTeamUserIdTextField4ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void greenTeamCodeNameTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField1ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField1.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField1ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamCodeNameTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField2ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField2.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField2ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void greenTeamCodeNameTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField3ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField3.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField3ActionPerformed
+    private void greenTeamUserIdTextField5ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void greenTeamCodeNameTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField4ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField4.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField4ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamCodeNameTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField5ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField5.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField5ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void greenTeamCodeNameTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField6ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField6.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField6ActionPerformed
+    private void greenTeamUserIdTextField6ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void greenTeamCodeNameTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField7ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField7.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField7ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamCodeNameTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField8ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField8.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField8ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void greenTeamCodeNameTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField9ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField9.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField9ActionPerformed
+    private void greenTeamUserIdTextField7ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void greenTeamCodeNameTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField10ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField10.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField10ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamCodeNameTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField11ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField11.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField11ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
 
-    private void greenTeamCodeNameTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField12ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField12.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField12ActionPerformed
+    private void greenTeamUserIdTextField8ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
 
-    private void greenTeamCodeNameTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField13ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField13.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField13ActionPerformed
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
 
-    private void greenTeamCodeNameTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenTeamCodeNameTextField14ActionPerformed
-//this will be the code for what happens when we hit enter on a CodeNameTextField
-//we essentially want to let the user add a name to the DB if it doens't already exist
-//so if the user is clicking enter on this text field they want to add a new user to the DB
-//So we need to pull the strings from the textFields and send them to the DB to create a new record
-String idNum = greenTeamUserIdTextField14.getText();
-String codeName = evt.getActionCommand();
-System.out.println("These are the values that will be passed to the DB to add a new record.");
-System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-//DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField14ActionPerformed
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField9ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField10ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField11ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField12ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField13ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField14ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamUserIdTextField15ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        String idFromEvt = evt.getActionCommand();
+        int idNumParsed = -1;
+        try
+        {
+            idNumParsed = Integer.parseInt(idFromEvt);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Value in the user Id box is not an integer");
+        }
+
+        if(idNumParsed == -1)
+        {
+            System.out.println("Please change the value in Id field to an integer.");
+        }
+        else
+        {
+            System.out.println("Sending the DB the id number: " + idNumParsed);
+            //so the string stored in the text bock is submitted as "evt"
+            //so I'll then run a querry on the database, if the corresponding 
+
+            String dbCodeName = db.inTable(idNumParsed);
+            // if the codeName is found we'll write that data to the next textField
+            if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
+            {
+            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+            greenTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+            }
+            else
+            {//do nothing
+            }
+        }
+    }
+
+    private void greenTeamCodeNameTextField0ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField0.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField1ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField1.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField2ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField2.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField3ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField3.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField4ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField4.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField5ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField5.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField6ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField6.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField7ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField7.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField8ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField8.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField9ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField9.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField10ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField10.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField11ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField11.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField12ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField12.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField13ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField13.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
+
+    private void greenTeamCodeNameTextField14ActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //this will be the code for what happens when we hit enter on a CodeNameTextField
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField14.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
     private void greenTeamCodeNameTextField15ActionPerformed(java.awt.event.ActionEvent evt)
-     {//GEN-FIRST:event_greenTeamCodeNameTextField15ActionPerformed
+    {
         //this will be the code for what happens when we hit enter on a CodeNameTextField
-        //we essentially want to let the user add a name to the DB if it doens't already exist
-        //so if the user is clicking enter on this text field they want to add a new user to the DB
-        //So we need to pull the strings from the textFields and send them to the DB to create a new record
-        String idNum = greenTeamUserIdTextField15.getText();
-        String codeName = evt.getActionCommand();
-        System.out.println("These are the values that will be passed to the DB to add a new record.");
-        System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
-        //DB.addRecord(idNum, codeName, "Password");
-    }//GEN-LAST:event_greenTeamCodeNameTextField15ActionPerformed
+         //we essentially want to let the user add a name to the DB if it doens't already exist
+         //so if the user is clicking enter on this text field they want to add a new user to the DB
+         //So we need to pull the strings from the textFields and send them to the DB to create a new record
+         String idNum = greenTeamUserIdTextField15.getText();
+         int idNumParsed = -1;
+         try
+         {
+             idNumParsed = Integer.parseInt(idNum);
+         }
+         catch(NumberFormatException e)
+         {
+             System.out.println("Value in the user Id box is not an integer");
+         }
+         if(idNumParsed == -1)
+         {
+             System.out.println("Please change the value in the used ID box to an integer.");
+         }
+         else
+         {
+             String codeName = db.inTable(idNumParsed);
+             if(codeName == null)
+             {
+                 codeName = evt.getActionCommand();
+                 System.out.println("These are the values that will be passed to the DB to add a new record.");
+                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
+                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+             }
+             else
+             {
+                 System.out.println("That userId already exist please enter a different integer.");
+             }
+         }
+     }
 
     /**
      * @param args the command line arguments

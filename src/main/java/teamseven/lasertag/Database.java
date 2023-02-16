@@ -108,19 +108,21 @@ public class Database
       }  
    }
 
-   public boolean inTable(int id)
+   public String inTable(int id)
    {
+      String returnString = null;
       for (int i = 0; i < list.size(); i++)
       {
          System.out.println(list.get(i).id_num);
          if (list.get(i).id_num == id)
          {
             System.out.println("Yes, " + id + " is in the table");
-            return true;
+            returnString = list.get(i).codename;
+            return returnString;
          }
       }
       System.out.println("No, " + id + " is not in the table");
-      return false;
+      return returnString;
    }
 
    public boolean closeDatabase()
