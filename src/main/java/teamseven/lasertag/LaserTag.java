@@ -40,14 +40,14 @@ public class LaserTag {
         SplashScreen splashScreen = new SplashScreen();
         EntryTerminal entryTerminal = new EntryTerminal();
 
-        Database db = new Database();
+        // Database db = new Database();
 
-        db.openDatabase();
-        db.readRecords();
-        db.createRecord(9, "Paul", "Smith", "brug");
-        db.deleteRecord(9, "Paul", "Smith", "brug");
-        db.inTable(100);
-        db.closeDatabase();
+        // db.openDatabase();
+        // db.readRecords();
+        // db.createRecord(9, "Paul", "Smith", "brug");
+        // db.deleteRecord(9, "Paul", "Smith", "brug");
+        // db.inTable(100);
+        // db.closeDatabase();
         
         /* Create and display the form */
         // make splashScreen visible

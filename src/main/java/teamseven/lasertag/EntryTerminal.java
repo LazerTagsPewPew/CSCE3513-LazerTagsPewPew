@@ -13,10 +13,15 @@ public class EntryTerminal extends javax.swing.JFrame {
     /**
      * Creates new form EntryTerminal
      */
+    public Database db;
+
 
 //we're gonna have to add a member variable that is an instance of our database
     public EntryTerminal() {
         initComponents();
+        db = new Database();
+        db.openDatabase();
+        db.readRecords();
 //when we intialize we'll call DB.connect();
 //we do this so we can use DB.createRecord and DB.querry in our methods for textFields.
     }
@@ -1549,18 +1554,18 @@ public class EntryTerminal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//-----------------------------------------------------------------------------------------------------------------------------------
     private void redTeamUserIdTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField7ActionPerformed
-    String idFromEvt = evt.getActionCommand();
-    System.out.println("Sending the DB the id number: " + idFromEvt);
-//so the string stored in the text bock is submitted as "evt"
-//so I'll then run a querry on the database, if the corresponding 
-    String dbCodeName = "Testing Code Name";
-    //String dbCodeName = DB.querry(idFromEvt);
-// if the codeName is found we'll write that data to the next textField
+        String idFromEvt = evt.getActionCommand();
+        System.out.println("Sending the DB the id number: " + idFromEvt);
+        //so the string stored in the text bock is submitted as "evt"
+        //so I'll then run a querry on the database, if the corresponding 
+        String dbCodeName = "Testing Code Name";
+        //String dbCodeName = DB.querry(idFromEvt);
+        // if the codeName is found we'll write that data to the next textField
         if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
         {
-//we now need to write what the querry returned to the next redTeamCodeNameTextField0
+        //we now need to write what the querry returned to the next redTeamCodeNameTextField0
         redTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
         }
     }
@@ -1672,6 +1677,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField0KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField0KeyReleased
@@ -1691,6 +1697,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField0KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField0KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField0KeyReleased
@@ -1700,12 +1707,14 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     }//GEN-LAST:event_startButtonItemStateChanged
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-    System.exit(ABORT); //when the button is pressed it ends the player entry screen
+        db.closeDatabase();
+        System.exit(ABORT); //when the button is pressed it ends the player entry screen
     }//GEN-LAST:event_startButtonActionPerformed
 
     private void redTeamUserIdTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField1KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField1KeyReleased
@@ -1728,6 +1737,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField1KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField1KeyReleased
@@ -1747,6 +1757,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField2KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField2KeyReleased
@@ -1754,6 +1765,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField3KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField3KeyReleased
@@ -1761,6 +1773,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField4KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField4KeyReleased
@@ -1768,6 +1781,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField5KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField5KeyReleased
@@ -1775,6 +1789,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField6KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField6KeyReleased
@@ -1782,6 +1797,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField7KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField7KeyReleased
@@ -1789,6 +1805,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField8KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField8KeyReleased
@@ -1796,6 +1813,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField9KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField9KeyReleased
@@ -1803,6 +1821,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField10KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField10KeyReleased
@@ -1810,6 +1829,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField11KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField11KeyReleased
@@ -1817,6 +1837,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField12KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField12KeyReleased
@@ -1824,6 +1845,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField13KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField13KeyReleased
@@ -1831,6 +1853,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField14KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField14KeyReleased
@@ -1838,6 +1861,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamUserIdTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField15KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamUserIdTextField15KeyReleased
@@ -1845,6 +1869,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField2KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField2KeyReleased
@@ -1852,6 +1877,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField3KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField3KeyReleased
@@ -1859,6 +1885,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField4KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField4KeyReleased
@@ -1866,6 +1893,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField5KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField5KeyReleased
@@ -1873,6 +1901,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField6KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField6KeyReleased
@@ -1880,6 +1909,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField7KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField7KeyReleased
@@ -1887,6 +1917,7 @@ System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
     private void redTeamCodeNameTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamCodeNameTextField8KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
+            db.closeDatabase();
              System.exit(ABORT);
          }
     }//GEN-LAST:event_redTeamCodeNameTextField8KeyReleased
