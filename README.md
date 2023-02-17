@@ -8,7 +8,6 @@
 # once the branch is open let the program intialize itself since there are a lot of files at work. (VS code takes a second to set everything up)
 # then you'll want to run the LaserTag.java file which will create an instance of the splash screen then create and instance of our player entry screen
 # which is connected to the data base and can querry ID numbers along with create new records if a specified user ID doesn't exist.
-# To get to new text boxes you can press tab or use your mouse to select the cell. To submit an ID or new record to the database the user must press enter after they
-# are done typing in one of the textbox
+# To get to new text boxes you can press tab or use your mouse to select the cell. To submit an ID or new record to the database the user must press enter after they are done typing in one of the textbox
 #
 # if the program doesn't run the first time it means that the program rewrote our ".class" files and the user needs to fetch from the orgin again.
