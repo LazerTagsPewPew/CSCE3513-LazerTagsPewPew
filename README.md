@@ -14,3 +14,5 @@
 # to end the program press F3 in any of the text fields or press the start button
 =======
 # if the program doesn't run the first time it means that the program rewrote our ".class" files and the user needs to fetch from the orgin again.
+
+commit from clays phone
