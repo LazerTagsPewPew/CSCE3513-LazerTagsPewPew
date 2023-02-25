@@ -5,7 +5,8 @@
 # Sprint 2 is complete. 
 # To run the program open the branch "MainBranch(grade-this-one)-playerEntryScreenWithTextFieldFunctionality".
 # the other branches in th github are branches we are no longer using but want to keep for documentation purposes.
-# You'll want to open this branch in a program that will be able to compile and run java source code (Our team has been using VS code to edit and run our program)
+# You'll want to open this branch in a program that will be able to compile and run java source code (Our team has been using VS code to edit and run our program) in the command line interface enter /usr/bin/env /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -cp /var/folders/bj/sxz3d58n3mvcj8v5qg43lkk40000gn/T/cp_31c0ybdkb0q2xoy5k95i59y5r.jar teamseven.lasertag.LaserTag
+
 # once the branch is open let the program intialize itself since there are a lot of files at work. (VS code takes a second to set everything up)
 # then you'll want to run the LaserTag.java file which will create an instance of the splash screen then create and instance of our player entry screen
 # which is connected to the data base and can querry ID numbers along with create new records if a specified user ID doesn't exist.
