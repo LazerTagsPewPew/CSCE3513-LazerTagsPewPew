@@ -74,7 +74,28 @@ public class LaserTag {
                 entryTerminal.setVisible(true);
             }
         });
-        
+
+        try
+        {
+            Thread.sleep(300);
+        }
+        catch (InterruptedException e)
+        {
+        }
+
+
+        while(entryTerminal.isVisibil)
+        {
+            //do nothing just let the player entry run
+            System.out.println("Testing");
+        }
+
+        System.out.println("Testing2"); //these will be removed 
+        entryTerminal.dispose();
+        System.out.println("Testing3"); //this one also
+        //this is where we'll then run an instance of the player action screen once 
+        //the F3 key is hit in the player entry screen.
+        System.exit(0);        
     }
     
 }

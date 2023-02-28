@@ -16,6 +16,7 @@ public class EntryTerminal extends javax.swing.JFrame {
      * Creates new form EntryTerminal
      */
     public Database db;
+    public Boolean isVisibil = true;
 
 
 //we're gonna have to add a member variable that is an instance of our database
@@ -1839,7 +1840,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField0KeyReleased
 
@@ -1884,7 +1886,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField0KeyReleased
 
@@ -1894,14 +1897,16 @@ public class EntryTerminal extends javax.swing.JFrame {
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         db.closeDatabase();
-        System.exit(ABORT); //when the button is pressed it ends the player entry screen
+        this.setVisible(false);
+        isVisibil = false;  
     }//GEN-LAST:event_startButtonActionPerformed
 
     private void redTeamUserIdTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redTeamUserIdTextField1KeyReleased
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField1KeyReleased
 
@@ -1945,7 +1950,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField1KeyReleased
 
@@ -1990,7 +1996,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField2KeyReleased
 
@@ -1998,7 +2005,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField3KeyReleased
 
@@ -2006,7 +2014,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField4KeyReleased
 
@@ -2014,7 +2023,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField5KeyReleased
 
@@ -2022,7 +2032,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField6KeyReleased
 
@@ -2030,7 +2041,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField7KeyReleased
 
@@ -2038,7 +2050,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField8KeyReleased
 
@@ -2046,7 +2059,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField9KeyReleased
 
@@ -2054,7 +2068,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField10KeyReleased
 
@@ -2062,7 +2077,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField11KeyReleased
 
@@ -2070,7 +2086,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField12KeyReleased
 
@@ -2078,7 +2095,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField13KeyReleased
 
@@ -2086,7 +2104,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField14KeyReleased
 
@@ -2094,7 +2113,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamUserIdTextField15KeyReleased
 
@@ -2102,7 +2122,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField2KeyReleased
 
@@ -2110,7 +2131,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField3KeyReleased
 
@@ -2118,7 +2140,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField4KeyReleased
 
@@ -2126,7 +2149,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField5KeyReleased
 
@@ -2134,7 +2158,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField6KeyReleased
 
@@ -2142,7 +2167,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField7KeyReleased
 
@@ -2150,7 +2176,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField8KeyReleased
 
@@ -2158,7 +2185,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField9KeyReleased
 
@@ -2166,7 +2194,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField10KeyReleased
 
@@ -2174,7 +2203,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField11KeyReleased
 
@@ -2182,7 +2212,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField12KeyReleased
 
@@ -2190,7 +2221,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField13KeyReleased
 
@@ -2198,7 +2230,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_redTeamCodeNameTextField14KeyReleased
 
@@ -2206,7 +2239,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }
 
@@ -3017,7 +3051,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField0KeyReleased
 
@@ -3025,7 +3060,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField1KeyReleased
 
@@ -3033,7 +3069,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField2KeyReleased
 
@@ -3041,7 +3078,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField3KeyReleased
 
@@ -3049,7 +3087,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField4KeyReleased
 
@@ -3057,7 +3096,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField5KeyReleased
 
@@ -3065,7 +3105,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField6KeyReleased
 
@@ -3073,7 +3114,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField7KeyReleased
 
@@ -3081,7 +3123,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField8KeyReleased
 
@@ -3089,7 +3132,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField9KeyReleased
 
@@ -3097,7 +3141,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField10KeyReleased
 
@@ -3105,7 +3150,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField11KeyReleased
 
@@ -3113,7 +3159,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField12KeyReleased
 
@@ -3121,7 +3168,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField13KeyReleased
 
@@ -3129,7 +3177,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField14KeyReleased
 
@@ -3137,7 +3186,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamUserIdTextField15KeyReleased
 
@@ -3145,7 +3195,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField0KeyReleased
 
@@ -3153,7 +3204,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField1KeyReleased
 
@@ -3161,7 +3213,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField2KeyReleased
 
@@ -3169,7 +3222,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField3KeyReleased
 
@@ -3177,7 +3231,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField4KeyReleased
 
@@ -3185,7 +3240,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField5KeyReleased
 
@@ -3193,7 +3249,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField6KeyReleased
 
@@ -3201,7 +3258,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField7KeyReleased
 
@@ -3209,7 +3267,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField8KeyReleased
 
@@ -3217,7 +3276,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField9KeyReleased
 
@@ -3225,7 +3285,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField10KeyReleased
 
@@ -3233,7 +3294,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField11KeyReleased
 
@@ -3241,7 +3303,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField12KeyReleased
 
@@ -3249,7 +3312,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField13KeyReleased
 
@@ -3257,7 +3321,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField14KeyReleased
 
@@ -3265,7 +3330,8 @@ public class EntryTerminal extends javax.swing.JFrame {
          if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_F3)
          {
             db.closeDatabase();
-             System.exit(ABORT);
+            this.setVisible(false);
+            isVisibil = false;  
          }
     }//GEN-LAST:event_greenTeamCodeNameTextField15KeyReleased
 
