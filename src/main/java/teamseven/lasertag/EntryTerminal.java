@@ -5,6 +5,7 @@
 package teamseven.lasertag;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +18,13 @@ public class EntryTerminal extends javax.swing.JFrame {
      */
     public Database db;
     public Boolean isVisibil = true;
+
+    //we need an arrayList of strings to store the code name
+    //for each team
+    //first just starting with the red team
+    public ArrayList<String> redTeamNameList = new ArrayList<>();
+    //now green team
+    public ArrayList<String> greenTeamNameList = new ArrayList<>();
 
 
 //we're gonna have to add a member variable that is an instance of our database
@@ -1585,8 +1593,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -1623,6 +1646,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -1658,8 +1696,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -1696,6 +1749,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -1731,8 +1799,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -1769,6 +1852,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -1804,8 +1902,24 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList
+
             }
             else
             {//do nothing
@@ -1874,6 +1988,22 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -1937,8 +2067,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -1984,6 +2129,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                 System.out.println("These are the values that will be passed to the DB to add a new record.");
                 System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                 db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
             }
             else
             {
@@ -2271,8 +2431,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                  
             }
             else
             {//do nothing
@@ -2307,8 +2482,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2343,8 +2533,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2379,8 +2584,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2415,8 +2635,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2451,8 +2686,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2487,8 +2737,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2523,8 +2788,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2559,8 +2839,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2595,8 +2890,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2631,8 +2941,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            redTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                redTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -2669,6 +2994,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2706,6 +3046,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2743,6 +3098,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2780,6 +3150,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2817,6 +3202,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2854,6 +3254,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2891,6 +3306,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2928,6 +3358,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -2965,6 +3410,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -3002,6 +3462,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -3039,6 +3514,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    redTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList 
              }
              else
              {
@@ -3362,8 +3852,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField0.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                  
             }
             else
             {//do nothing
@@ -3398,8 +3903,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField1.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3434,8 +3954,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField2.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3470,8 +4005,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField3.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3506,8 +4056,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField4.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3542,8 +4107,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField5.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3578,8 +4158,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField6.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3614,8 +4209,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField7.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3650,8 +4260,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField8.setText(dbCodeName); //so this string will be replaced with what the querry returns 
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -3686,8 +4311,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField9.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3722,8 +4362,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField10.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3758,8 +4413,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField11.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3794,8 +4464,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField12.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3830,8 +4515,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField13.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3866,8 +4566,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField14.setText(dbCodeName); //so this string will be replaced with what the querry returns 
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -3902,8 +4617,23 @@ public class EntryTerminal extends javax.swing.JFrame {
             // if the codeName is found we'll write that data to the next textField
             if(dbCodeName != null)//if the DB.querry(idFromEvt); doesnt return a value the string will be null and we wont do anything yet
             {
-            //we now need to write what the querry returned to the next redTeamCodeNameTextField0
-            greenTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns                                                 
+                //we now need to write what the querry returned to the next redTeamCodeNameTextField0
+                greenTeamCodeNameTextField15.setText(dbCodeName); //so this string will be replaced with what the querry returns
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == dbCodeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(dbCodeName);
+                }
+                //if not we dont add the name to the arrayList                                                 
             }
             else
             {//do nothing
@@ -3940,6 +4670,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -3977,6 +4722,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4014,6 +4774,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4051,6 +4826,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4088,6 +4878,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4125,6 +4930,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4162,6 +4982,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4199,6 +5034,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4236,6 +5086,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4273,6 +5138,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4310,6 +5190,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4347,6 +5242,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4384,6 +5294,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4421,6 +5346,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4458,6 +5398,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4495,6 +5450,21 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
+                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                int controlVal = 0;
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == codeName)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                if(controlVal == 0)
+                {
+                    greenTeamNameList.add(codeName);
+                }
+                //if not we dont add the name to the arrayList
              }
              else
              {
