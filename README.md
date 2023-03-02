@@ -17,3 +17,4 @@
 # if the program doesn't run the first time it means that the program rewrote our ".class" files and the user needs to fetch from the orgin again.
 
 commit from clays phone
+commit from clays iPad!
