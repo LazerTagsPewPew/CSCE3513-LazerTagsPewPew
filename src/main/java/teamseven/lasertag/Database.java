@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
+//Saves changes to database after program shuts down.
 public class Database
 {
    public Connection c = null;
