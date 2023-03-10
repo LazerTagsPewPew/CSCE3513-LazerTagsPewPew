@@ -4,6 +4,14 @@
 */
  package teamseven.lasertag;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Graphics;
+import java.awt.Point;
+
 /**
  *
  * @author daijonmroberts
@@ -13,8 +21,110 @@ public class PlayerAction extends javax.swing.JFrame {
     /**
      * Creates new form PlayerAction
      */
-    public PlayerAction() {
+    //member varibles
+    //need an instance of the DB to get all the code names
+    public Database db;
+
+    //total team scores
+    public int redTeamTotalScore;
+    public int greenTeamTotalScore;
+
+    //red team arrays of ID's and codeNames
+    public ArrayList<Integer> redTeamIDList = new ArrayList<>();
+    public ArrayList<String> redTeamNameList = new ArrayList<>();
+    public ArrayList<Integer> redTeamPlayerScores = new ArrayList<>();
+    //now green team
+    public ArrayList<Integer> greenTeamIDList = new ArrayList<>();
+    public ArrayList<String> greenTeamNameList = new ArrayList<>();
+    public ArrayList<Integer> greenTeamPlayerScores = new ArrayList<>();
+    
+    public PlayerAction() 
+    {
         initComponents();
+        db = new Database();
+        db.openDatabase();
+        db.readRecords();
+        redTeamTotalScore = 0;
+        greenTeamTotalScore = 0;
+        this.RedTotalScoreTextPane.setText(String.valueOf(redTeamTotalScore));
+        this.GreenTotalScoreTextPane.setText(String.valueOf(greenTeamTotalScore));
+    }
+
+    public void setArrays(ArrayList<Integer> red, ArrayList<Integer> green)
+    {
+        String tempCodeName = "";
+
+        for(int i = 0; i < red.size(); i++)
+        {
+            redTeamIDList.add(red.get(i));
+            tempCodeName = db.inTable(red.get(i));
+            redTeamNameList.add(tempCodeName);
+            redTeamPlayerScores.add(0);
+        }
+        tempCodeName = "";
+        for(int i = 0; i < green.size(); i++)
+        {
+            greenTeamIDList.add(green.get(i));
+            tempCodeName = db.inTable(green.get(i));
+            greenTeamNameList.add(tempCodeName);
+            greenTeamPlayerScores.add(0);
+        }
+        System.out.println("Red Team IDS: " + redTeamIDList);
+        System.out.println("Green Team IDS: " + greenTeamIDList);
+        System.out.println("Red Team codenames: " + redTeamNameList);
+        System.out.println("Green Team codenames: " + greenTeamNameList);
+        System.out.println("Red Team player scores: " + redTeamPlayerScores);
+        System.out.println("Green Team player scores: " + greenTeamPlayerScores);
+
+        if(green.size() > 0)
+        {
+            if(green.size() > 2)
+            {
+                this.GreenPlayerHighScoreNameTextPane1.setText(greenTeamNameList.get(0));
+                this.GreenPlayerHighScoreNameTextPane2.setText(greenTeamNameList.get(1));
+                this.GreenPlayerHighScoreNameTextPane3.setText(greenTeamNameList.get(2));
+                this.GreenHighScoreTextPane1.setText(String.valueOf(greenTeamPlayerScores.get(0)));
+                this.GreenHighScoreTextPane2.setText(String.valueOf(greenTeamPlayerScores.get(1)));
+                this.GreenHighScoreTextPane3.setText(String.valueOf(greenTeamPlayerScores.get(2)));
+            }
+            else if(green.size() == 2)
+            {
+                this.GreenPlayerHighScoreNameTextPane1.setText(greenTeamNameList.get(0));
+                this.GreenPlayerHighScoreNameTextPane2.setText(greenTeamNameList.get(1));
+                this.GreenHighScoreTextPane1.setText(String.valueOf(greenTeamPlayerScores.get(0)));
+                this.GreenHighScoreTextPane2.setText(String.valueOf(greenTeamPlayerScores.get(1)));
+            }
+            else if(green.size() == 1)
+            {
+                this.GreenPlayerHighScoreNameTextPane1.setText(greenTeamNameList.get(0));
+                this.GreenHighScoreTextPane1.setText(String.valueOf(greenTeamPlayerScores.get(0)));
+            }
+        }
+
+        if(red.size() > 0)
+        {
+            if(red.size() > 2)
+            {
+                this.RedPlayerHighScoreNameTextPane1.setText(redTeamNameList.get(0));
+                this.RedPlayerHighScoreNameTextPane2.setText(redTeamNameList.get(1));
+                this.RedPlayerHighScoreNameTextPane3.setText(redTeamNameList.get(2));
+                this.RedHighScoreTextPane1.setText(String.valueOf(redTeamPlayerScores.get(0)));
+                this.RedHighScoreTextPane2.setText(String.valueOf(redTeamPlayerScores.get(1)));
+                this.RedHighScoreTextPane3.setText(String.valueOf(redTeamPlayerScores.get(2)));
+            }
+            else if(red.size() == 2)
+            {
+                this.RedPlayerHighScoreNameTextPane1.setText(redTeamNameList.get(0));
+                this.RedPlayerHighScoreNameTextPane2.setText(redTeamNameList.get(1));
+                this.RedHighScoreTextPane1.setText(String.valueOf(redTeamPlayerScores.get(0)));
+                this.RedHighScoreTextPane2.setText(String.valueOf(redTeamPlayerScores.get(1)));
+            }
+            else if(red.size() == 1)
+            {
+                this.RedPlayerHighScoreNameTextPane1.setText(redTeamNameList.get(0));
+                this.RedHighScoreTextPane1.setText(String.valueOf(redTeamPlayerScores.get(0)));
+            }
+        }
     }
 
     /**
@@ -57,8 +167,35 @@ public class PlayerAction extends javax.swing.JFrame {
         GreenHighScoreTextPane3 = new javax.swing.JTextPane();
         jScrollPane14 = new javax.swing.JScrollPane();
         GreenTotalScoreTextPane = new javax.swing.JTextPane();
-        RedTeamScorePanel = new javax.swing.JPanel();
-        GreenTeamScorePanel = new javax.swing.JPanel();
+        RedTeamScorePanel = new javax.swing.JPanel()
+        {
+            int x = 8;
+            int y = 12;
+            @Override
+            protected void paintComponent(Graphics g){
+                super.paintComponent(g);
+                //g.drawString(allRedNames, 8, 12);
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    g.drawString(redTeamNameList.get(i), x, y + (i * 12));
+                }
+            }
+        };
+        GreenTeamScorePanel = new javax.swing.JPanel()
+        {
+            int x = 8;
+            int y = 12;
+            @Override
+            protected void paintComponent(Graphics g){
+                super.paintComponent(g);
+                //g.drawString(allRedNames, 8, 12);
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    g.drawString(greenTeamNameList.get(i), x, y + (i * 12));
+                }
+            }
+        };
+
         WhiteFooterPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -221,6 +358,7 @@ public class PlayerAction extends javax.swing.JFrame {
             RedTeamScorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 260, Short.MAX_VALUE)
         );
+        
 
         GreenTeamScorePanel.setBackground(new java.awt.Color(102, 102, 255));
         GreenTeamScorePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 255, 0), null));

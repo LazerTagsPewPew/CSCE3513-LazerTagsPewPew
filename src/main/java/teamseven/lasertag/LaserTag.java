@@ -41,14 +41,6 @@ public class LaserTag {
         EntryTerminal entryTerminal = new EntryTerminal();
         PlayerAction playAction = new PlayerAction();
 
-        // Database db = new Database();
-
-        // db.openDatabase();
-        // db.readRecords();
-        // db.createRecord(9, "Paul", "Smith", "brug");
-        // db.deleteRecord(9, "Paul", "Smith", "brug");
-        // db.inTable(100);
-        // db.closeDatabase();
         
         /* Create and display the form */
         // make splashScreen visible
@@ -100,6 +92,8 @@ public class LaserTag {
         //we need to pass the array values to the actionScreen first though
         System.out.println("Red Team: " + entryTerminal.redTeamNameList);
         System.out.println("Green Team: " + entryTerminal.greenTeamNameList);
+        //send the values to the action screen once the entry screen is finished
+        playAction.setArrays(entryTerminal.redTeamNameList, entryTerminal.greenTeamNameList);
         //this is where we'll then run an instance of the player action screen once 
         //the F3 key is hit in the player entry screen.
         java.awt.EventQueue.invokeLater(new Runnable() {
