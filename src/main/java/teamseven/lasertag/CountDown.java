@@ -23,7 +23,7 @@ public class CountDown {
     public static void main(String[] args) {
         new CountDown();
     }
-
+    // Countdown function
     public CountDown() {
         EventQueue.invokeLater(new Runnable() {
             @Override
