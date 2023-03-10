@@ -19,6 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class CountDown {
 
+    //Creating JFrame class object so we can dispose of it in the LaserTag file
     JFrame frame;
     public static void main(String[] args) {
         new CountDown();
@@ -34,6 +35,7 @@ public class CountDown {
                     ex.printStackTrace();
                 }
 
+                //creating the JFrame and setting it's dimensions and properties
                 frame = new JFrame("Laser Tag count down");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.add(new TestPane());
@@ -46,6 +48,7 @@ public class CountDown {
 
     public class TestPane extends JPanel {
 
+        //Setting the duration of the timer to 30 seconds
         private Timer timer;
         private long startTime = -1;
         private long duration = 30000;
@@ -72,8 +75,10 @@ public class CountDown {
             });
             timer.setInitialDelay(0);
 
+            //Starts the Timer
             timer.start();
             
+            //Formating of the numbers
             label = new JLabel("...");
             add(label);
             
