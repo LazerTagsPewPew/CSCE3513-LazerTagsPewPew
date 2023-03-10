@@ -5,6 +5,7 @@
  * in the demo. We increment the position of that text by 1. So maybe we will have to use a class for
  * this task store the objects in an array and then when the score is added we traverse the array and add one to the y value.
  */
+package teamseven.lasertag;
 
 import java.awt.Color;
 import java.awt.Dimension;

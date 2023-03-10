@@ -39,6 +39,7 @@ public class LaserTag {
 
         SplashScreen splashScreen = new SplashScreen();
         EntryTerminal entryTerminal = new EntryTerminal();
+        PlayerAction playAction = new PlayerAction();
 
         // Database db = new Database();
 
@@ -90,14 +91,36 @@ public class LaserTag {
             System.out.print("");
         }
 
-        System.out.println("Testing2"); //these will be removed 
+ 
         entryTerminal.dispose();
-        System.out.println("Testing3"); //this one also
+
+        //before anything we need to run the count down timer which can be a seperate class.
+
+
+        //we need to pass the array values to the actionScreen first though
         System.out.println("Red Team: " + entryTerminal.redTeamNameList);
         System.out.println("Green Team: " + entryTerminal.greenTeamNameList);
         //this is where we'll then run an instance of the player action screen once 
         //the F3 key is hit in the player entry screen.
-        System.exit(0);        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                playAction.setVisible(true);
+            }
+        });
+        //going to need to add functionality so that the screen closes after a certain set time or from an action listener
+        //now for testing purposes just letting the screen run until closed by the (x) or run for 3 seconds
+
+        // try
+        // {
+        //     Thread.sleep(3000);
+        // }
+        // catch (InterruptedException e)
+        // {
+        // }
+
+        //playAction.dispose();
+
+        //System.exit(0);        
     }
     
 }

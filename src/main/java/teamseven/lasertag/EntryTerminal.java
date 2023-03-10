@@ -22,9 +22,9 @@ public class EntryTerminal extends javax.swing.JFrame {
     //we need an arrayList of strings to store the code name
     //for each team
     //first just starting with the red team
-    public ArrayList<String> redTeamNameList = new ArrayList<>();
+    public ArrayList<Integer> redTeamNameList = new ArrayList<>();
     //now green team
-    public ArrayList<String> greenTeamNameList = new ArrayList<>();
+    public ArrayList<Integer> greenTeamNameList = new ArrayList<>();
 
 
 //we're gonna have to add a member variable that is an instance of our database
@@ -1599,17 +1599,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -1646,11 +1654,19 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("These are the values that will be passed to the DB to add a new record.");
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
-                                 //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
+                //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -1658,9 +1674,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -1702,15 +1718,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -1753,7 +1777,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -1761,9 +1793,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -1805,17 +1837,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                              
             }
             else
             {//do nothing
@@ -1856,7 +1896,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -1864,9 +1912,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -1908,15 +1956,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList
 
@@ -1993,7 +2049,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -2001,7 +2065,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -2073,17 +2137,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                               
             }
             else
             {//do nothing
@@ -2133,7 +2205,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -2141,9 +2221,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
             }
             else
             {
@@ -2437,15 +2517,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                  
             }
@@ -2488,17 +2576,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                               
             }
             else
             {//do nothing
@@ -2539,17 +2635,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                          
             }
             else
             {//do nothing
@@ -2590,15 +2694,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -2641,15 +2753,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -2692,15 +2812,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -2743,15 +2871,23 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -2794,17 +2930,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -2845,17 +2989,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -2896,17 +3048,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -2947,17 +3107,25 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == dbCodeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
                 }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(dbCodeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -2998,7 +3166,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3006,7 +3182,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3050,7 +3226,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3058,9 +3242,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -3102,7 +3286,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3110,9 +3302,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -3154,7 +3346,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3162,7 +3362,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3206,7 +3406,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3214,7 +3422,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3258,7 +3466,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3266,7 +3482,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3310,7 +3526,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3318,7 +3542,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3362,7 +3586,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3370,9 +3602,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList 
+                //if not we dont add the name to the arrayList
              }
              else
              {
@@ -3414,7 +3646,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3422,7 +3662,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3466,7 +3706,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3474,7 +3722,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3518,7 +3766,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < redTeamNameList.size(); i++)
                 {
-                    if(redTeamNameList.get(i) == codeName)
+                    if(redTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+                
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(greenTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3526,7 +3782,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    redTeamNameList.add(codeName);
+                    redTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList 
              }
@@ -3858,7 +4114,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3866,7 +4130,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                  
             }
@@ -3909,7 +4173,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3917,7 +4189,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -3960,7 +4232,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -3968,7 +4248,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4011,7 +4291,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4019,7 +4307,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4062,7 +4350,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4070,9 +4366,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                               
             }
             else
             {//do nothing
@@ -4113,7 +4409,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4121,7 +4425,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4164,7 +4468,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4172,7 +4484,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4215,7 +4527,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4223,7 +4543,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4266,7 +4586,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4274,7 +4602,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                
             }
@@ -4317,7 +4645,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4325,7 +4661,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4368,7 +4704,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4376,7 +4720,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4419,7 +4763,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4427,9 +4779,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -4470,7 +4822,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4478,9 +4838,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -4521,7 +4881,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4529,9 +4897,9 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
-                //if not we dont add the name to the arrayList                                                 
+                //if not we dont add the name to the arrayList                                                
             }
             else
             {//do nothing
@@ -4572,7 +4940,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4580,7 +4956,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                
             }
@@ -4623,7 +4999,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == dbCodeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1;
+                    else
+                    {}
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4631,7 +5015,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(dbCodeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList                                                 
             }
@@ -4674,7 +5058,15 @@ public class EntryTerminal extends javax.swing.JFrame {
                 int controlVal = 0;
                 for(int i = 0; i < greenTeamNameList.size(); i++)
                 {
-                    if(greenTeamNameList.get(i) == codeName)
+                    if(greenTeamNameList.get(i) == idNumParsed)
+                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                    else
+                    {} //do nothing and keep the controlVal at 0
+                }
+
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(redTeamNameList.get(i) == idNumParsed)
                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
                     else
                     {} //do nothing and keep the controlVal at 0
@@ -4682,7 +5074,7 @@ public class EntryTerminal extends javax.swing.JFrame {
 
                 if(controlVal == 0)
                 {
-                    greenTeamNameList.add(codeName);
+                    greenTeamNameList.add(idNumParsed);
                 }
                 //if not we dont add the name to the arrayList
              }
@@ -4723,20 +5115,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4775,20 +5175,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4827,20 +5235,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4879,20 +5295,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4931,20 +5355,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -4983,20 +5415,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5035,20 +5475,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5087,20 +5535,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5139,20 +5595,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5191,20 +5655,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5243,20 +5715,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5295,20 +5775,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5347,20 +5835,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5399,20 +5895,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
@@ -5451,20 +5955,28 @@ public class EntryTerminal extends javax.swing.JFrame {
                  System.out.println("IdNumber: " + idNum + " CodeName: " + codeName);
                  db.createRecord(idNumParsed, "blank", "blank", codeName);
                  //now we need to add this name to the arrayList for red team but need to make sure there are no duplicates
-                int controlVal = 0;
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    if(greenTeamNameList.get(i) == codeName)
-                        controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
-                    else
-                    {} //do nothing and keep the controlVal at 0
-                }
-
-                if(controlVal == 0)
-                {
-                    greenTeamNameList.add(codeName);
-                }
-                //if not we dont add the name to the arrayList
+                 int controlVal = 0;
+                 for(int i = 0; i < greenTeamNameList.size(); i++)
+                 {
+                     if(greenTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 for(int i = 0; i < redTeamNameList.size(); i++)
+                 {
+                     if(redTeamNameList.get(i) == idNumParsed)
+                         controlVal = 1; //this means that the name already exist in the name list and we shouldnt add it
+                     else
+                     {} //do nothing and keep the controlVal at 0
+                 }
+ 
+                 if(controlVal == 0)
+                 {
+                     greenTeamNameList.add(idNumParsed);
+                 }
+                 //if not we dont add the name to the arrayList
              }
              else
              {
