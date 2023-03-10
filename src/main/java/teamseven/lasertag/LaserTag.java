@@ -87,6 +87,17 @@ public class LaserTag {
         entryTerminal.dispose();
 
         //before anything we need to run the count down timer which can be a seperate class.
+        CountDown timer = new CountDown();
+
+        try
+        {
+            Thread.sleep(30000);
+        }
+        catch (InterruptedException e)
+        {
+        }
+
+        timer.frame.dispose();
 
 
         //we need to pass the array values to the actionScreen first though
@@ -101,16 +112,6 @@ public class LaserTag {
                 playAction.setVisible(true);
             }
         });
-        //going to need to add functionality so that the screen closes after a certain set time or from an action listener
-        //now for testing purposes just letting the screen run until closed by the (x) or run for 3 seconds
-
-        // try
-        // {
-        //     Thread.sleep(3000);
-        // }
-        // catch (InterruptedException e)
-        // {
-        // }
 
         //playAction.dispose();
 
