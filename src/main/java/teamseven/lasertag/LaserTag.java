@@ -91,7 +91,7 @@ public class LaserTag {
 
         try
         {
-            Thread.sleep(30000);
+            Thread.sleep(3000);
         }
         catch (InterruptedException e)
         {
@@ -112,6 +112,11 @@ public class LaserTag {
                 playAction.setVisible(true);
             }
         });
+
+        // while(playAction.updateScreen())
+        // {      
+        // }
+        boolean tmp = playAction.updateScreen();
 
         //playAction.dispose();
 

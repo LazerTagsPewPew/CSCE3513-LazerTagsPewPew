@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -127,6 +128,30 @@ public class PlayerAction extends javax.swing.JFrame {
         }
     }
 
+    public boolean updateScreen() //we'll use this method to work with the python generator
+    {
+        boolean cntrlValue = true; //we'll have the python generator return the id number of who hit who
+
+        // for(int i = 0; i < 30; i++)
+        // {
+        //     System.out.println("testing" + i);
+        // }
+
+//importance        // String idNums;
+        // //this.initComponents().updateRedPanel(getGraphics(), 0, 1);
+        // while(idNums = pythonGenerator()) //assuming the python generator returns a string of comma split id nums, first being the shooter
+        // {
+        //     //so we'll have to parse idNums to get each id number then check which teams they are on
+        //     //going to need to add functionality to see what team the shooter is on
+        //     //depending on what team the shooter is on will determine what jpanel we pass to update Jpanel
+        //     updateJpanel(BackgroundPanel, ALLBITS, ABORT);
+//importance        // }
+        updateJpanel(RedTeamScorePanel, 0, 1);
+
+        //cntrlValue = false;
+        return cntrlValue;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,11 +200,23 @@ public class PlayerAction extends javax.swing.JFrame {
             protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 //g.drawString(allRedNames, 8, 12);
-                for(int i = 0; i < redTeamNameList.size(); i++)
+                for(int i = 0; i < redTeamNameList.size(); i++) //going to need to use some of this logic for update screen.
                 {
                     g.drawString(redTeamNameList.get(i), x, y + (i * 12));
                 }
             }
+            
+            // public void updateRedPanel(Graphics g, int idShooter, int idGotHit)
+            // {
+            //     int x = 8;
+            //     int y = 12;
+            //     super.paintComponent(g);
+            //     String nameShooter = db.inTable(idShooter);
+            //     String nameGotHit = db.inTable(idGotHit);
+            //     String fullText = nameShooter + " hit " + nameGotHit;
+            //     g.drawString(fullText, x, y);
+
+            // }
         };
         GreenTeamScorePanel = new javax.swing.JPanel()
         {
@@ -566,4 +603,20 @@ public class PlayerAction extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     // End of variables declaration//GEN-END:variables
+    //creating a function to update the message jpanel box
+    public void updateJpanel(JPanel p, int idShooter, int idGotHit)
+    {
+                int x = 8;
+                int y = 12;
+                Graphics g = p.getGraphics();
+                //super.paintComponent(g);
+                p.paintComponents(g);
+                String nameShooter = db.inTable(idShooter);
+                String nameGotHit = db.inTable(idGotHit);
+                String fullText = nameShooter + " hit " + nameGotHit;
+                System.out.println(fullText);
+                g.drawString(fullText, x, y);
+    }
 }
+
+

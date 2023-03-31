@@ -51,7 +51,7 @@ public class CountDown {
         //Setting the duration of the timer to 30 seconds
         private Timer timer;
         private long startTime = -1;
-        private long duration = 30000;
+        private long duration = 3000;
 
         private JLabel label;
 
