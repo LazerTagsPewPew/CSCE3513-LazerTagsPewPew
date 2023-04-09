@@ -1,8 +1,8 @@
 # CSCE3513 - LazerTagsPewPew
----
+----
 # Team:
 ## Daijon, Nathan, Jordan, Landon, Clay, Drew
----
+----
 
 # Running the program:
 1. Open the program in the correct branch in VS Code. Right now, we are using the branch *main*
