@@ -116,6 +116,15 @@ public class LaserTag {
         // while(playAction.updateScreen())
         // {      
         // }
+        //need to give the action screen a second to intialize before updating its Jpanel and text frames
+        try
+        {
+            Thread.sleep(300);
+        }
+        catch (InterruptedException e)
+        {
+        }
+
         boolean tmp = playAction.updateScreen();
 
         //playAction.dispose();
