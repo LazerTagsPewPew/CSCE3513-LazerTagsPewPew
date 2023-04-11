@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class UDPClient
 {
-	public static void main(String args[]) throws IOException
+	public void intialize() throws IOException
 	{
 		Scanner sc = new Scanner(System.in);
 

@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import java.awt.Graphics;
 import java.awt.Point;
 
+
 /**
  *
  * @author daijonmroberts
@@ -29,6 +30,7 @@ public class PlayerAction extends javax.swing.JFrame {
     //total team scores
     public int redTeamTotalScore;
     public int greenTeamTotalScore;
+    public int i = 0;
 
     //red team arrays of ID's and codeNames
     public ArrayList<Integer> redTeamIDList = new ArrayList<>();
@@ -42,10 +44,12 @@ public class PlayerAction extends javax.swing.JFrame {
     public ArrayList<Integer> greenTeamPlayerScores = new ArrayList<>();
     public int gx = 8;
     public int gy = 12; //240 is the max we want to draw our y
+    UDPServer mainServer;
 
-    public PlayerAction() 
+    public PlayerAction(UDPServer server) 
     {
         initComponents();
+        mainServer = server;
         db = new Database();
         db.openDatabase();
         db.readRecords();
@@ -132,42 +136,25 @@ public class PlayerAction extends javax.swing.JFrame {
         }
     }
 
-    public boolean updateScreen() //we'll use this method to work with the python generator
+    public boolean updateScreen() //we'll use this method to work with the java generator
     {
-        boolean cntrlValue = true; //we'll have the python generator return the id number of who hit who
-
-        // for(int i = 0; i < 30; i++)
-        // {
-        //     System.out.println("testing" + i);
-        // }
-
-        //importance        // String idNums;
-        // //this.initComponents().updateRedPanel(getGraphics(), 0, 1);
-        // while(idNums = pythonGenerator()) //assuming the python generator returns a string of comma split id nums, first being the shooter
-        // {
-        //     //so we'll have to parse idNums to get each id number then check which teams they are on
-        //     //going to need to add functionality to see what team the shooter is on
-        //     //depending on what team the shooter is on will determine what jpanel we pass to update Jpanel
-        //     updateJpanel(BackgroundPanel, ALLBITS, ABORT);
-        //importance        // }
-        //right now just testing with ID numbers that I inserted but will soon have the number generator provide these values
-        for(int i = 0; i < 15; i++)
+        boolean cntrlValue = true; 
+        
+        if(i < mainServer.playerShooter.size())
         {
-            updateJpanel(0, 1);
-            updateScores(0, 1);
+            updateJpanel(mainServer.playerShooter.get(i), mainServer.playerHit.get(i));
+            updateScores(mainServer.playerShooter.get(i), mainServer.playerHit.get(i));
+            i++;
 
-            updateJpanel(0,2);
-            updateScores(0, 2);
-
-            updateJpanel(1, 4);
-            updateScores(1, 4);
-
-            updateJpanel(3,6);
-            updateScores(3, 6);
+            try
+            {
+                Thread.sleep(30);
+            }
+            catch (InterruptedException e)
+            {
+            }
         }
-        //update(getGraphics());
 
-        //cntrlValue = false;
         return cntrlValue;
     }
     //now need to create a method that updates the top players scores.
@@ -760,7 +747,7 @@ public class PlayerAction extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlayerAction().setVisible(true);
+                //new PlayerAction().setVisible(true);
             }
         });
     }

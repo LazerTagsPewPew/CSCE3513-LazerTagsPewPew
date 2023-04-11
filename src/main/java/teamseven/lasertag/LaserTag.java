@@ -4,6 +4,8 @@
  */
 package teamseven.lasertag;
 
+import java.io.IOException;
+
 /**
  *
  * @author dmr019
@@ -39,8 +41,12 @@ public class LaserTag {
 
         SplashScreen splashScreen = new SplashScreen();
         EntryTerminal entryTerminal = new EntryTerminal();
-        PlayerAction playAction = new PlayerAction();
+        UDPServer server = new UDPServer();
+        PlayerAction playAction = new PlayerAction(server);
+        UDPClient client = new UDPClient();
 
+        Thread serverThread = new Thread(server);
+        serverThread.start();
         
         /* Create and display the form */
         // make splashScreen visible
@@ -86,6 +92,17 @@ public class LaserTag {
  
         entryTerminal.dispose();
 
+        try
+        {
+            client.intialize();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+
+
         //before anything we need to run the count down timer which can be a seperate class.
         CountDown timer = new CountDown();
 
@@ -125,7 +142,10 @@ public class LaserTag {
         {
         }
 
-        boolean tmp = playAction.updateScreen();
+        while(playAction.updateScreen())
+        {
+
+        }
 
         //playAction.dispose();
 

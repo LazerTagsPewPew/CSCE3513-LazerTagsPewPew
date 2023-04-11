@@ -6,13 +6,27 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.util.ArrayList;
 
-public class UDPServer
+public class UDPServer implements Runnable
 {
-	public static void main(String[] args) throws IOException
+	public ArrayList<Integer> playerShooter = new ArrayList<>();
+	public ArrayList<Integer> playerHit = new ArrayList<>();
+
+	DatagramSocket ds;
+
+	public void run()
 	{
 		// Step 1 : Create a socket to listen at port 1234
-		DatagramSocket ds = new DatagramSocket(7501);
+		try
+		{
+			ds = new DatagramSocket(7501);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+
 		byte[] receive = new byte[65535];
 
 		DatagramPacket DpReceive = null;
@@ -23,13 +37,22 @@ public class UDPServer
 			DpReceive = new DatagramPacket(receive, receive.length);
 
 			// Step 3 : revieve the data in byte buffer.
-			ds.receive(DpReceive);
+			try
+			{
+				ds.receive(DpReceive);
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
 
 			System.out.println("Client:-" + data(receive));
 			String message = data(receive).toString();
 			String[] idsOfPlayers = message.split("\\:");
 			int idOfPlayerTransmitting = Integer.parseInt(idsOfPlayers[0]);
 			int idOfPlayerHit = Integer.parseInt(idsOfPlayers[1]);
+			playerShooter.add(idOfPlayerTransmitting);
+			playerHit.add(idOfPlayerHit);
 			// Exit the server if the client sends "bye"
 			if (data(receive).toString().equals("bye"))
 			{

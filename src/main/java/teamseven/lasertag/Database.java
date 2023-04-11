@@ -20,7 +20,7 @@ public class Database
          c = DriverManager
             .getConnection("jdbc:postgresql://db.yfxjoxxaxhaqikyecrro.supabase.co:5432/postgres",
             "postgres", "LazerTagPewPew");
-         c.setAutoCommit(false);
+         c.setAutoCommit(true);
          System.out.println("Opened database successfully");
          return true;
       } 
@@ -45,6 +45,7 @@ public class Database
          list.add(newPlayer);
 
          System.out.println("Record created successfully");
+         //c.commit();
          return true;
       }
       catch (Exception e) 
@@ -98,6 +99,7 @@ public class Database
          list.remove(deletedPlayer);
 
          System.out.println("Record deleted successfully");
+         //c.commit();
          return true;
       }
       catch (Exception e) 
@@ -131,7 +133,7 @@ public class Database
       {
          list.clear();
          stmt.close();
-         c.commit();
+         //c.commit();
          c.close();
          return true;
       }
