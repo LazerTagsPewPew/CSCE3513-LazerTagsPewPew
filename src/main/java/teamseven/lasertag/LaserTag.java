@@ -108,7 +108,7 @@ public class LaserTag {
 
         try
         {
-            Thread.sleep(3000);
+            Thread.sleep(30000);
         }
         catch (InterruptedException e)
         {
@@ -130,10 +130,8 @@ public class LaserTag {
             }
         });
 
-        // while(playAction.updateScreen())
-        // {      
-        // }
-        //need to give the action screen a second to intialize before updating its Jpanel and text frames
+        CountDown2 playActionTimer = new CountDown2();
+
         try
         {
             Thread.sleep(300);
@@ -146,10 +144,6 @@ public class LaserTag {
         {
 
         }
-
-        //playAction.dispose();
-
-        //System.exit(0);        
     }
     
 }

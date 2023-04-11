@@ -148,7 +148,7 @@ public class PlayerAction extends javax.swing.JFrame {
 
             try
             {
-                Thread.sleep(30);
+                Thread.sleep(100);
             }
             catch (InterruptedException e)
             {

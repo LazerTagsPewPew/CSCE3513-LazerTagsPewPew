@@ -17,7 +17,8 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class CountDown {
+public class CountDown2 
+{
 
     //Creating JFrame class object so we can dispose of it in the LaserTag file
     JFrame frame;
@@ -25,7 +26,7 @@ public class CountDown {
         new CountDown();
     }
     // Countdown function
-    public CountDown() {
+    public CountDown2() {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -51,7 +52,7 @@ public class CountDown {
         //Setting the duration of the timer to 30 seconds
         private Timer timer;
         private long startTime = -1;
-        private long duration = 30000;
+        private long duration = 360000;
 
         private JLabel label;
 
