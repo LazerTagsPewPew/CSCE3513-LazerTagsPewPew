@@ -154,14 +154,138 @@ public class PlayerAction extends javax.swing.JFrame {
         for(int i = 0; i < 15; i++)
         {
             updateJpanel(0, 1);
-            updateJpanel(2,0);
+            updateScores(0, 1);
+
+            updateJpanel(0,2);
+            updateScores(0, 2);
+
             updateJpanel(1, 4);
+            updateScores(1, 4);
+
             updateJpanel(3,6);
+            updateScores(3, 6);
         }
         //update(getGraphics());
 
         //cntrlValue = false;
         return cntrlValue;
+    }
+    //now need to create a method that updates the top players scores.
+    public void updateScores(int idShooter, int idGotHit)
+    {
+        //need to check if we are going to write to the red or green panel
+        int arrayIndex = 1000;
+
+        boolean isItRed = false;
+        boolean isItGreen = false;
+        for(int i = 0; i < redTeamIDList.size(); i++)
+        {
+            if(idShooter == redTeamIDList.get(i))
+            {
+                isItRed = true;
+                arrayIndex = i;
+            }
+        }
+
+        for(int i = 0; i < greenTeamIDList.size(); i++)
+        {
+            if(idShooter == greenTeamIDList.get(i))
+            {
+                isItGreen = true;
+                arrayIndex = i;
+            }
+        }
+
+        if(arrayIndex != 1000)
+        {
+            if(isItRed)
+            {
+                int tmp = redTeamPlayerScores.get(arrayIndex);
+                tmp += 10;
+                redTeamPlayerScores.set(arrayIndex, tmp);
+                redTeamTotalScore += 10;
+            }
+            else if(isItGreen)
+            {
+                int tmp = greenTeamPlayerScores.get(arrayIndex);
+                tmp += 10;
+                greenTeamPlayerScores.set(arrayIndex, tmp);
+                greenTeamTotalScore += 10;
+            }
+            else
+            {
+                System.out.println("That is not an active user of this game.");
+            }
+        }
+        //now need to update all the text box's with the leading scores....
+        //so going to need to find the highest score of each team
+        //only going to run traffic generator with two user IDS so possibly can use that to advantage
+        //first need to set the team scores though.
+        this.RedTotalScoreTextPane.setText(String.valueOf(redTeamTotalScore));
+        this.GreenTotalScoreTextPane.setText(String.valueOf(greenTeamTotalScore));
+
+        int indexMaxRed = 0;
+        int valueMaxRed = 0;
+        for(int i = 0; i < redTeamPlayerScores.size(); i++)
+        {
+            int tmp = redTeamPlayerScores.get(i);
+            if(tmp > valueMaxRed)
+            {
+                valueMaxRed = tmp;
+                indexMaxRed = i;
+            }
+        }
+        //now do the same for green
+        int indexMaxGreen = 0;
+        int valueMaxGreen = 0;
+        for(int i = 0; i < greenTeamPlayerScores.size(); i++)
+        {
+            int tmp = greenTeamPlayerScores.get(i);
+            if(tmp > valueMaxGreen)
+            {
+                valueMaxGreen = tmp;
+                indexMaxGreen = i;
+            }
+        }
+
+        if(indexMaxRed == 0)
+        {
+            this.RedPlayerHighScoreNameTextPane1.setText(redTeamNameList.get(0));
+            this.RedPlayerHighScoreNameTextPane2.setText(redTeamNameList.get(1));
+            this.RedHighScoreTextPane1.setText(String.valueOf(redTeamPlayerScores.get(0)));
+            this.RedHighScoreTextPane2.setText(String.valueOf(redTeamPlayerScores.get(1)));
+        }
+        else if(indexMaxRed == 1)
+        {
+            this.RedPlayerHighScoreNameTextPane1.setText(redTeamNameList.get(1));
+            this.RedPlayerHighScoreNameTextPane2.setText(redTeamNameList.get(0));
+            this.RedHighScoreTextPane1.setText(String.valueOf(redTeamPlayerScores.get(1)));
+            this.RedHighScoreTextPane2.setText(String.valueOf(redTeamPlayerScores.get(0)));
+        }
+        else
+        {
+            System.out.println("There shouldn't be more than 2 active users.");
+        }
+
+        if(indexMaxGreen == 0)
+        {
+            this.GreenPlayerHighScoreNameTextPane1.setText(greenTeamNameList.get(0));
+            this.GreenPlayerHighScoreNameTextPane2.setText(greenTeamNameList.get(1));
+            this.GreenHighScoreTextPane1.setText(String.valueOf(greenTeamPlayerScores.get(0)));
+            this.GreenHighScoreTextPane2.setText(String.valueOf(greenTeamPlayerScores.get(1)));
+        }
+        else if(indexMaxGreen == 1)
+        {
+            this.GreenPlayerHighScoreNameTextPane1.setText(greenTeamNameList.get(1));
+            this.GreenPlayerHighScoreNameTextPane2.setText(greenTeamNameList.get(0));
+            this.GreenHighScoreTextPane1.setText(String.valueOf(greenTeamPlayerScores.get(1)));
+            this.GreenHighScoreTextPane2.setText(String.valueOf(greenTeamPlayerScores.get(0)));
+        }
+        else
+        {
+            System.out.println("There shouldn't be more than 2 active users.");
+        }
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     //creating a function to update the message jpanel box
