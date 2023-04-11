@@ -34,10 +34,14 @@ public class PlayerAction extends javax.swing.JFrame {
     public ArrayList<Integer> redTeamIDList = new ArrayList<>();
     public ArrayList<String> redTeamNameList = new ArrayList<>();
     public ArrayList<Integer> redTeamPlayerScores = new ArrayList<>();
+    public int rx = 8;
+    public int ry = 12; //240 is the max we want to draw our y
     //now green team
     public ArrayList<Integer> greenTeamIDList = new ArrayList<>();
     public ArrayList<String> greenTeamNameList = new ArrayList<>();
     public ArrayList<Integer> greenTeamPlayerScores = new ArrayList<>();
+    public int gx = 8;
+    public int gy = 12; //240 is the max we want to draw our y
 
     public PlayerAction() 
     {
@@ -146,7 +150,14 @@ public class PlayerAction extends javax.swing.JFrame {
         //     //depending on what team the shooter is on will determine what jpanel we pass to update Jpanel
         //     updateJpanel(BackgroundPanel, ALLBITS, ABORT);
         //importance        // }
-        updateJpanel(this.RedTeamScorePanel, 0, 1);
+        //right now just testing with ID numbers that I inserted but will soon have the number generator provide these values
+        for(int i = 0; i < 15; i++)
+        {
+            updateJpanel(0, 1);
+            updateJpanel(2,0);
+            updateJpanel(1, 4);
+            updateJpanel(3,6);
+        }
         //update(getGraphics());
 
         //cntrlValue = false;
@@ -154,22 +165,75 @@ public class PlayerAction extends javax.swing.JFrame {
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     //creating a function to update the message jpanel box
-    public void updateJpanel(JPanel p, int idShooter, int idGotHit)
+    public void updateJpanel(int idShooter, int idGotHit)
     {
-                int x = 8;
-                int y = 12;
+                //int x = 8;
+                //int y = 240; //240 is the max we want to draw our y.
                 //update(p.getGraphics());
                 //Graphics g = p.getGraphics();
                 //super.paintComponent(g);
                 //p.super.paintComponent(g);
                 //p.paintComponents(g);
+                
                 String nameShooter = db.inTable(idShooter);
                 String nameGotHit = db.inTable(idGotHit);
                 String fullText = nameShooter + " hit " + nameGotHit;
                 System.out.println(fullText);
-                p.getGraphics().drawString(fullText, x, y);
+                //need to check if we are going to write to the red or green panel
+                boolean isItRed = false;
+                boolean isItGreen = false;
+                for(int i = 0; i < redTeamNameList.size(); i++)
+                {
+                    if(nameShooter == redTeamNameList.get(i))
+                    {
+                        isItRed = true;
+                    }
+                }
+                for(int i = 0; i < greenTeamNameList.size(); i++)
+                {
+                    if(nameShooter == greenTeamNameList.get(i))
+                    {
+                        isItGreen = true;
+                    }
+                }
+                //we now know if the shooter was on red or green
+                if(isItRed == true)
+                {
+                    if(ry < 240)
+                    {
+                        this.RedTeamScorePanel.getGraphics().drawString(fullText, rx, ry);
+                        ry += 12;
+                    }
+                    else
+                    {
+                        //need a way to clear the text off the jpanel then start writing again 
+                        //this.RedTeamScorePanel.getGraphics().clearRect(8, 12, 30, 240); //need to learn how to clear
+                        this.RedTeamScorePanel.repaint();
+                        ry = 12;                                                          //text from jpanel
+                        this.RedTeamScorePanel.getGraphics().drawString(fullText, rx, ry);
+                    }
+                }
+                else if(isItGreen)
+                {
+                    if(gy < 240)
+                    {
+                        this.GreenTeamScorePanel.getGraphics().drawString(fullText, gx, gy);
+                        gy += 12;
+                    }
+                    else
+                    {
+                        //this.GreenTeamScorePanel.getGraphics().clearRect(8, 12, 30, 240);
+                        this.GreenTeamScorePanel.repaint();
+                        gy = 12;
+                        this.GreenTeamScorePanel.getGraphics().drawString(fullText, gx, gy);
+                    }
+                }
+                else
+                {
+                    System.out.println("User didnt exist as an active player");
+                }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -212,31 +276,33 @@ public class PlayerAction extends javax.swing.JFrame {
         GreenTotalScoreTextPane = new javax.swing.JTextPane();
         RedTeamScorePanel = new javax.swing.JPanel()
         {
-            int x = 8;
-            int y = 12;
+            // int x = 8;
+            // int y = 12;
+            //public boolean isRed = true;
             @Override
             protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 //g.drawString(allRedNames, 8, 12);
-                for(int i = 0; i < redTeamNameList.size(); i++) //going to need to use some of this logic for update screen.
-                {
-                    g.drawString(redTeamNameList.get(i), x, y + (i * 12));
-                }
+                // for(int i = 0; i < redTeamNameList.size(); i++) //going to need to use some of this logic for update screen.
+                // {
+                //     g.drawString(redTeamNameList.get(i), x, y + (i * 12));
+                // }
             }
             
         };
         GreenTeamScorePanel = new javax.swing.JPanel()
         {
-            int x = 8;
-            int y = 12;
+            // int x = 8;
+            // int y = 12;
+            //public boolean isRed = false;
             @Override
             protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 //g.drawString(allRedNames, 8, 12);
-                for(int i = 0; i < greenTeamNameList.size(); i++)
-                {
-                    g.drawString(greenTeamNameList.get(i), x, y + (i * 12));
-                }
+                // for(int i = 0; i < greenTeamNameList.size(); i++)
+                // {
+                //     g.drawString(greenTeamNameList.get(i), x, y + (i * 12));
+                // }
             }
         };
 
