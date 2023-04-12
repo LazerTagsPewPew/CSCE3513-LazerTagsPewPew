@@ -5,7 +5,7 @@
 ----
 
 # Running the program:
-1. Open the program in the correct branch in VS Code. Right now, we are using the branch *main*
+1. Open the program in the correct branch in VS Code. Right now, we are using the branch *main2*
 2. To do this download the zip file from the *main* branch 
 3. extract the zip file and open the new folder in VS code
 4. Run the *LaserTag.java* file. You will know if the program ran correctly if the splash screen image shows up.
@@ -20,4 +20,4 @@
 13. Another 6 minute count down timer will also be present once the player action screen starts
 14. To close the program, press the *X* button on the player action window or on the count down window.
 
-![logo](CSCE3513-LazerTagsPewPew/src/main/java/teamseven/lasertag/logo.jpeg)
+![logo](/src/main/java/teamseven/lasertag/logo.jpeg)
