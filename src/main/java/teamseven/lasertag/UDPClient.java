@@ -1,5 +1,5 @@
 package teamseven.lasertag;
-// Java program to illustrate Client side
+// Java program to illustrate Client Side
 // Implementation using DatagramSocket
 import java.io.IOException;
 import java.net.DatagramPacket;
