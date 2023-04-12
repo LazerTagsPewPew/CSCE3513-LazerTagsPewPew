@@ -14,7 +14,7 @@
 7. After pressing *F3*, the traffic generator will require input from the command line.
 8. You will need to enter the ID number of 2 players for each team. (The command line will tell you what to enter exactly)
 9. The traffic generator will also require an input of the number of events you want to happen.
-10. After the number of events are entered a count-down timer will start.
+10. After the number of events are entered a count-down timer will start along with the audio file
 11. After the timer hits zero, the count-down timer will disappear and open the player action screen.
 12. Once the player Action screen starts you should see the scores and text on screen actively change.
 13. Another 6 minute count down timer will also be present once the player action screen starts
