@@ -1,7 +1,7 @@
 # CSCE3513 - LazerTagsPewPew
 ----
 # Team:
-## Daijon, Nathan, Jordan, Landon, Clay, Drew
+## Daijon, Nathan, Jordan, Landon, Clayton, Drew
 ----
 
 # Running the program:
