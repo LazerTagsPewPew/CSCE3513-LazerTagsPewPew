@@ -6,7 +6,7 @@
 
 # Running the program:
 1. Open the program in the correct branch in VS Code. Right now, we are using the branch *main2*
-2. To do this download the zip file from the *main* branch 
+2. To do this download the zip file from the *main2* branch 
 3. extract the zip file and open the new folder in VS code
 4. Run the *LaserTag.java* file. You will know if the program ran correctly if the splash screen image shows up.
 5. When the splash screen automatically closes click on the new java window to see the player entry screen.
