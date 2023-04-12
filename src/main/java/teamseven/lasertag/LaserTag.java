@@ -44,6 +44,7 @@ public class LaserTag {
         UDPServer server = new UDPServer();
         PlayerAction playAction = new PlayerAction(server);
         UDPClient client = new UDPClient();
+        musicGenerator musicGen = new musicGenerator();
 
         Thread serverThread = new Thread(server);
         serverThread.start();
@@ -129,6 +130,8 @@ public class LaserTag {
                 playAction.setVisible(true);
             }
         });
+        
+        musicGen.startPlaying();
 
         CountDown2 playActionTimer = new CountDown2();
 
