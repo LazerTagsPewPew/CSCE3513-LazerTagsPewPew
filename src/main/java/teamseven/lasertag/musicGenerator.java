@@ -11,6 +11,7 @@ public class musicGenerator
 {
     public void startPlaying()
     {
+        //random number is chosen and stored in trackSelector
         Random rand = new Random();
         int trackSelector = rand.nextInt(3);
         trackSelector = trackSelector + 1;
