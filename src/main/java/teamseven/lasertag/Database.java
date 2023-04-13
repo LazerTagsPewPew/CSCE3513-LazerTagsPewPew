@@ -127,21 +127,5 @@ public class Database
       return returnString;
    }
 
-   public boolean closeDatabase()
-   {
-      try 
-      {
-         list.clear();
-         stmt.close();
-         //c.commit();
-         c.close();
-         return true;
-      }
-      catch (Exception e) 
-      {
-         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
-         System.exit(0);
-         return false;
-      } 
-   }
+
 }
