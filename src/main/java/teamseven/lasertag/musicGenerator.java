@@ -1,5 +1,5 @@
 package teamseven.lasertag;
-
+// author : Nathan Sampara and Drew Stull
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
